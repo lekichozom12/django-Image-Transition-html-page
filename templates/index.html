@@ -1,0 +1,68 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my app</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <style> 
+        .filecontent {
+            display: flex;
+            justify-content: center;
+        }
+        .addimage {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2 align="center">Images </h2>
+<p align = 'center'><img src="{% static 'images/i.jpg' %}" style="width: 360; height: 260;"></p>
+
+<div class = "formcontent">
+    <button id = "btn1";>1</button>
+    <button id="btn2";>2</button>
+    <button id="btn3";>3</button>
+</div>
+
+<script>
+    let img = document.querySelector('img');
+    let btn1 = document.querySelector('#btn1');
+    let btn2 = document.querySelector('#btn2');
+    let btn3 = document.querySelector('#btn3');
+
+    imagess = [];
+
+    btn1.addEventListener('click', () =>{
+        img.src = "{% static 'images/1.jpg' %}";
+    })
+
+    btn2.addEventListener('click', () =>{
+        img.src = "{% static 'images/3.jpg' %}";
+    })
+
+    btn3.addEventListener('click', () =>{
+        img.src = "{% static 'images/2.jpg' %}";
+    })
+
+    function addImage() {
+        let f = document.querySelector('.addImage');
+        let s = f.value;
+
+        news = s.split('\\');
+        news.forEach(element => {
+            console.log(element);
+        });
+
+        imagess.push(`{% static 'images/{news[-1]}' %}`);
+    }
+
+    imagess.forEach(image => {
+        console.log(image);
+    })
+</script>
+</body>
+</html>

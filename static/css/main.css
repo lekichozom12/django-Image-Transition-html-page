@@ -1,0 +1,13 @@
+h2{
+    color: blue;
+    font-family: verdana;
+    font-size: 300%;
+}
+
+.formcontent {
+    display: flex;
+    justify-content: center;
+}
+div{
+    text-align: center;
+}
